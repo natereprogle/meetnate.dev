@@ -1,6 +1,5 @@
 import './globals.css'
 import React from 'react'
-import Nav from '@/components/nav/nav'
 
 export const metadata = {
     title: 'Nate Reprogle',
@@ -12,12 +11,5 @@ export default function RootLayout({
 }: {
     children: React.ReactNode
 }) {
-    return (
-        <html lang="en">
-            <body>
-                <Nav />
-                {children}
-            </body>
-        </html>
-    )
+    return <html lang="en">{children}</html>
 }
