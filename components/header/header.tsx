@@ -1,4 +1,3 @@
-import styles from '@/components/header/header.module.css'
 import { Noto_Serif_Display } from 'next/font/google'
 
 const notoSerifDisplay = Noto_Serif_Display({
@@ -10,7 +9,7 @@ export default function Header() {
     return (
         <header
             className={
-                'mx-7 mt-36 lg:ml-20 flex space-x-4 sm:space-x-0 items-end justify-around sm:[justify-content:normal] sm:grid sm:items-end sm:grid-cols-sm-header md:grid-cols-md-header lg:grid-cols-lg-header xl:grid-cols-xl-header'
+                'mx-7 mt-24 md:mt-36 lg:ml-20 space-x-4 sm:space-x-0 space-y-10 sm:space-y-0 items-end justify-around sm:[justify-content:normal] sm:grid sm:items-end sm:grid-cols-sm-header md:grid-cols-md-header lg:grid-cols-lg-header xl:grid-cols-xl-header'
             }>
             <div className={'flex flex-col'}>
                 <h3
@@ -22,13 +21,13 @@ export default function Header() {
                     I&apos;m Nate
                 </h3>
             </div>
-            <div className={`md:-my-2 ${styles['grid-item']}`}>
+            <div className={'flex items-end justify-center'}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                     src={'/memoji.png'}
                     alt={'Cartoon version of myself'}
                     className={
-                        'h-[70px] sm:h-[120px] md:h-[160px] lg:h-[240px] md:my-0 object-bottom object-contain'
+                        'h-[180px] sm:h-[120px] md:h-[160px] lg:h-[240px] md:my-0 object-bottom object-contain'
                     }></img>
             </div>
         </header>
