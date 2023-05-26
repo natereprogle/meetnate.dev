@@ -5,5 +5,8 @@
       "version": "lts"
     },
     "ghcr.io/devcontainers/features/sshd:1": {}
+  },
+  "postCreateCommand": {
+    "install": "pnpm install"
   }
 }
