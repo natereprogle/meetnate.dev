@@ -1,4 +1,5 @@
 import { Noto_Serif_Display } from 'next/font/google'
+import { motion } from 'framer-motion'
 
 const notoSerifDisplay = Noto_Serif_Display({
     subsets: ['latin'],
@@ -9,7 +10,7 @@ export default function Header() {
     return (
         <header
             className={
-                'mx-7 mt-24 md:mt-36 lg:ml-20 space-x-4 sm:space-x-0 space-y-10 sm:space-y-0 items-end justify-around sm:[justify-content:normal] sm:grid sm:items-end sm:grid-cols-sm-header md:grid-cols-md-header lg:grid-cols-lg-header xl:grid-cols-xl-header'
+                'h-screen mt-24 sm:mt-0 items-center mx-7 lg:ml-20 space-x-4 sm:space-x-0 space-y-10 sm:space-y-0 justify-around sm:[justify-content:normal] sm:grid sm:grid-cols-sm-header md:grid-cols-md-header lg:grid-cols-lg-header xl:grid-cols-xl-header'
             }>
             <div className={'flex flex-col'}>
                 <h3
@@ -21,7 +22,15 @@ export default function Header() {
                     I&apos;m Nate
                 </h3>
             </div>
-            <div className={'flex items-end justify-center'}>
+            <motion.div
+                className={'flex justify-center'}
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                    duration: 0.8,
+                    delay: 0.2,
+                    ease: [0, 0.71, 0.2, 1.01],
+                }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                     src={'/memoji.png'}
@@ -29,7 +38,7 @@ export default function Header() {
                     className={
                         'h-[180px] sm:h-[120px] md:h-[160px] lg:h-[240px] md:my-0 object-bottom object-contain'
                     }></img>
-            </div>
+            </motion.div>
         </header>
     )
 }

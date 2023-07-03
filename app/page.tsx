@@ -2,6 +2,7 @@
 
 import Header from '@/components/header/header'
 import Nav from '@/components/nav/nav'
+
 import React, { useEffect, useState } from 'react'
 
 import styles from '@/app/page.module.css'
@@ -9,29 +10,56 @@ import styles from '@/app/page.module.css'
 export default function Home() {
     const [isVisible, setIsVisible] = useState(true)
 
+    // useEffect for both bouncing arrow and navbar. Can be customized for different useState variables and transition heights
     useEffect(() => {
-        window.addEventListener('scroll', listenToScroll)
-        return () => window.removeEventListener('scroll', listenToScroll)
+        window.addEventListener('scroll', () => {
+            listenToScroll(0, setIsVisible)
+        })
+        return () =>
+            window.removeEventListener('scroll', () => {
+                listenToScroll(0, setIsVisible)
+            })
     }, [])
 
-    const listenToScroll = () => {
-        let heightToHideFrom = 0
+    const listenToScroll = (
+        height: number,
+        callback: React.Dispatch<React.SetStateAction<boolean>>,
+    ) => {
+        let heightToHideFrom = height
         const winScroll =
             document.body.scrollTop || document.documentElement.scrollTop
 
         if (winScroll > heightToHideFrom) {
-            setIsVisible(false)
+            callback(false)
         } else {
-            setIsVisible(true)
+            callback(true)
         }
     }
 
+    // A small react fragment which renders the Nav differently based on screen sizes and scroll distance
+    const mobileDiv: JSX.Element = (
+        <>
+            <div className={'block md:hidden'}>
+                <Nav />
+            </div>
+            <div className={'hidden md:block'}>
+                <div
+                    className={`${
+                        !isVisible ? styles['fade-in'] : styles['fade-out']
+                    }`}>
+                    <Nav />
+                </div>
+            </div>
+        </>
+    )
+
     return (
         <>
-            <Nav />
+            {/* Render navbar only if user has scrolled */}
+            {mobileDiv}
             <div className={'h-screen flex flex-col justify-between'}>
                 <Header />
-                {/* If the arrow is visible, meaning the page's scroll is above the set limit, fade it in and keep it. Otherwise, fade it out and hide it */}
+                {/* Stop rendering bouncing arrow if user has scrolled, otherwise render it */}
                 <div
                     className={`${
                         isVisible ? styles['fade-in'] : styles['fade-out']
