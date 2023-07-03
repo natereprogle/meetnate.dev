@@ -4,6 +4,7 @@ import Header from '@/components/header/header'
 import Nav from '@/components/nav/nav'
 
 import React, { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
 
 import styles from '@/app/page.module.css'
 
@@ -36,48 +37,32 @@ export default function Home() {
         }
     }
 
-    // A small react fragment which renders the Nav differently based on screen sizes and scroll distance
-    const mobileDiv: JSX.Element = (
-        <>
-            <div className={'block md:hidden'}>
-                <Nav />
-            </div>
-            <div className={'hidden md:block'}>
-                <div
-                    className={`${
-                        !isVisible ? styles['fade-in'] : styles['fade-out']
-                    }`}>
-                    <Nav />
-                </div>
-            </div>
-        </>
-    )
-
     return (
         <>
-            {/* Render navbar only if user has scrolled */}
-            {mobileDiv}
+            <Nav />
             <div className={'h-screen flex flex-col justify-between'}>
                 <Header />
                 {/* Stop rendering bouncing arrow if user has scrolled, otherwise render it */}
-                <div
-                    className={`${
-                        isVisible ? styles['fade-in'] : styles['fade-out']
-                    }`}>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                        className={`w-10 h-10 md:w-14 md:h-14 ${styles['bounce']} mx-auto`}>
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M15.75 17.25L12 21m0 0l-3.75-3.75M12 21V3"
-                        />
-                    </svg>
-                </div>
+                <motion.svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className={`w-10 h-10 md:w-14 md:h-14 ${styles['bounce']} mx-auto`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: isVisible ? 1 : 0 }}
+                    transition={{
+                        duration: 0.8,
+                        delay: isVisible ? 1.5 : 0.2,
+                        ease: [0, 0.71, 0.2, 1.01],
+                    }}>
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15.75 17.25L12 21m0 0l-3.75-3.75M12 21V3"
+                    />
+                </motion.svg>
             </div>
             <p>This is a test paragraph</p>
         </>
