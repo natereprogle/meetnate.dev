@@ -1,26 +1,26 @@
 'use client'
 
-import Header from '@/components/header/header'
-import Nav from '@/components/nav/nav'
+import React, { useState } from 'react'
+import { Noto_Serif_Display } from 'next/font/google'
+import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
 
-import React, { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+const notoSerifDisplay = Noto_Serif_Display({
+    subsets: ['latin'],
+    weight: 'variable',
+})
 
 import styles from '@/app/page.module.css'
+import Header from '@/components/header/header'
+import Nav from '@/components/nav/nav'
 
 export default function Home() {
     const [isVisible, setIsVisible] = useState(true)
 
-    // useEffect for both bouncing arrow and navbar. Can be customized for different useState variables and transition heights
-    useEffect(() => {
-        window.addEventListener('scroll', () => {
-            listenToScroll(0, setIsVisible)
-        })
-        return () =>
-            window.removeEventListener('scroll', () => {
-                listenToScroll(0, setIsVisible)
-            })
-    }, [])
+    // Framer motion to get rid of useEffect and instead just use their scroll hook
+    const { scrollY } = useScroll()
+    useMotionValueEvent(scrollY, 'change', () => {
+        listenToScroll(0, setIsVisible)
+    })
 
     const listenToScroll = (
         height: number,
@@ -64,7 +64,30 @@ export default function Home() {
                     />
                 </motion.svg>
             </div>
-            <p>This is a test paragraph</p>
+
+            <div
+                className={
+                    'mx-7 lg:ml-20 h-screen flex flex-col justify-center'
+                }>
+                <h3
+                    className={`text-[1.5rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem] font-medium ${notoSerifDisplay.className}`}>
+                    So...who am I, <em>really</em>?
+                </h3>
+                <div
+                    className={`text-[1.5rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem] font-medium ${notoSerifDisplay.className}`}>
+                    <div className={`flex`}>
+                        Well, I&apos;m a&nbsp;
+                        <div
+                            className={
+                                'h-20 overflow-y-scroll border-b-2 border-black'
+                            }>
+                            <p>item a</p>
+                            <p>item b</p>
+                            <p>item c</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }
