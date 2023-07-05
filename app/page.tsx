@@ -1,17 +1,12 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Noto_Serif_Display } from 'next/font/google'
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
-
-const notoSerifDisplay = Noto_Serif_Display({
-    subsets: ['latin'],
-    weight: 'variable',
-})
 
 import styles from '@/app/page.module.css'
 import Header from '@/components/header/header'
 import Nav from '@/components/nav/nav'
+import Body from '@/components/body/body'
 
 export default function Home() {
     const [isVisible, setIsVisible] = useState(true)
@@ -65,29 +60,7 @@ export default function Home() {
                 </motion.svg>
             </div>
 
-            <div
-                className={
-                    'mx-7 lg:ml-20 h-screen flex flex-col justify-center'
-                }>
-                <h3
-                    className={`text-[1.5rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem] font-medium ${notoSerifDisplay.className}`}>
-                    So...who am I, <em>really</em>?
-                </h3>
-                <div
-                    className={`text-[1.5rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem] font-medium ${notoSerifDisplay.className}`}>
-                    <div className={`flex`}>
-                        Well, I&apos;m a&nbsp;
-                        <div
-                            className={
-                                'h-20 overflow-y-scroll border-b-2 border-black'
-                            }>
-                            <p>item a</p>
-                            <p>item b</p>
-                            <p>item c</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Body />
         </>
     )
 }

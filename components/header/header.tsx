@@ -13,8 +13,7 @@ export default function Header() {
                 'h-screen mt-24 sm:mt-0 items-center mx-7 lg:ml-20 space-x-4 sm:space-x-0 space-y-10 sm:space-y-0 justify-around sm:[justify-content:normal] sm:grid sm:grid-cols-sm-header md:grid-cols-md-header lg:grid-cols-lg-header xl:grid-cols-xl-header'
             }>
             <div className={'flex flex-col'}>
-                <h3
-                    className={`text-[1.5rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem] font-medium ${notoSerifDisplay.className}`}>
+                <h3 className={`header-text ${notoSerifDisplay.className}`}>
                     Hi there
                 </h3>
                 <h3

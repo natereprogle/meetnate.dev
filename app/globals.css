@@ -15,3 +15,9 @@ body {
     */
     /*background-attachment: fixed;*/
 }
+
+@layer components {
+    .header-text {
+        @apply text-[1.5rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem] font-medium
+    }
+}
