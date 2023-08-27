@@ -20,13 +20,20 @@ body {
     .header-text {
         @apply text-[1.5rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem] font-medium
     }
+
+    .subheader-text {
+        @apply text-[1.5rem] sm:text-[2rem] md:text-[2rem] lg:text-[2.3rem] font-medium
+    }
 }
 
-#highlight-blue {
+/*
+A bunch of classes to enable highlighting of text.
+ */
+.highlight-blue {
     position: relative;
 }
 
-#highlight-blue::before {
+.highlight-blue::before {
     background-color: theme('colors.aliceblue.300');
 
     content: "";
@@ -39,12 +46,12 @@ body {
     transform: rotate(-1deg);
 }
 
-#highlight-orange {
+.highlight-orange {
     position: relative;
 }
 
 /*noinspection DuplicatedCode*/
-#highlight-orange::before {
+.highlight-orange::before {
     background-color: theme('colors.atomictangerine.300');
 
     content: "";
@@ -57,12 +64,12 @@ body {
     transform: rotate(-1deg);
 }
 
-#highlight-green {
+.highlight-green {
     position: relative;
 }
 
 /*noinspection DuplicatedCode*/
-#highlight-green::before {
+.highlight-green::before {
     background-color: theme('colors.ivory.400');
 
     content: "";
