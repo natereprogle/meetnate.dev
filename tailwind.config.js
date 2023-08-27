@@ -13,8 +13,8 @@ module.exports = {
             gridTemplateColumns: {
                 // These may seem odd, but these values are specific to ensure the spacing of the image and the headers.
                 'xl-header': '1.5fr 1fr',
-                'lg-header': '2fr 0.5fr',
-                'md-header': '1.9fr 1fr',
+                'lg-header': '1.8fr 0.7fr',
+                'md-header': '1.8fr 0.7fr',
                 'sm-header': '1fr 0.5fr',
             },
             colors: {

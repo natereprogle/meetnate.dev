@@ -21,3 +21,56 @@ body {
         @apply text-[1.5rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem] font-medium
     }
 }
+
+#highlight-blue {
+    position: relative;
+}
+
+#highlight-blue::before {
+    background-color: theme('colors.aliceblue.300');
+
+    content: "";
+    position: absolute;
+    width: calc(100% + 4px);
+    height: 60%;
+    left: -2px;
+    bottom: 10px;
+    z-index: -1;
+    transform: rotate(-1deg);
+}
+
+#highlight-orange {
+    position: relative;
+}
+
+/*noinspection DuplicatedCode*/
+#highlight-orange::before {
+    background-color: theme('colors.atomictangerine.300');
+
+    content: "";
+    position: absolute;
+    width: calc(100% + 4px);
+    height: 60%;
+    left: -2px;
+    bottom: 10px;
+    z-index: -1;
+    transform: rotate(-1deg);
+}
+
+#highlight-green {
+    position: relative;
+}
+
+/*noinspection DuplicatedCode*/
+#highlight-green::before {
+    background-color: theme('colors.ivory.400');
+
+    content: "";
+    position: absolute;
+    width: calc(100% + 4px);
+    height: 60%;
+    left: -2px;
+    bottom: 10px;
+    z-index: -1;
+    transform: rotate(-1deg);
+}
