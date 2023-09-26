@@ -18,8 +18,8 @@ dependencies:
     specifier: ^10.12.18
     version: 10.12.18(react-dom@18.2.0)(react@18.2.0)
   maath:
-    specifier: ^0.7.0
-    version: 0.7.0(@types/three@0.154.0)(three@0.154.0)
+    specifier: ^0.10.0
+    version: 0.10.0(@types/three@0.154.0)(three@0.154.0)
   next:
     specifier: ^13.2.4
     version: 13.2.4(react-dom@18.2.0)(react@18.2.0)
@@ -1936,8 +1936,8 @@ packages:
       yallist: 4.0.0
     dev: true
 
-  /maath@0.7.0(@types/three@0.154.0)(three@0.154.0):
-    resolution: {integrity: sha512-JQ1JZrQLDgJ59snCk2AcSb/jdGwNgGQXlLcfZChN8lmpMR7g3bpMM3ugcqGfU1ROwjVvX5CvcVJHc8TkxljG8Q==}
+  /maath@0.10.0(@types/three@0.154.0)(three@0.154.0):
+    resolution: {integrity: sha512-r6EnyYFjIlaeMi0WXO0kgXeMiFICgwCt8RYPSZD4yyZhJe9rkTlc/EA7t7lIov1cxfI+bFPYI8xp/OT3hb6/zg==}
     peerDependencies:
       '@types/three': '>=0.144.0'
       three: '>=0.144.0'
