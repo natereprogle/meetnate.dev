@@ -6,7 +6,7 @@ const notoSerifDisplay = Noto_Serif_Display({
     weight: 'variable',
 })
 
-export default function Header() {
+export default function Header({ props }: { props: any }) {
     return (
         <header
             className={
@@ -14,11 +14,11 @@ export default function Header() {
             }>
             <div className={'flex flex-col'}>
                 <h3 className={`header-text ${notoSerifDisplay.className}`}>
-                    Hi there
+                    {props.title}
                 </h3>
                 <h3
                     className={`text-[3rem] -mt-5 -mb-4 sm:-mt-10 sm:-mb-4 md:-my-12 sm:text-[5rem] md:text-[7rem] xl:text-[10rem] font-bold ${notoSerifDisplay.className}`}>
-                    I&apos;m Nate
+                    {props.subtitle}
                 </h3>
             </div>
             <motion.div
@@ -32,8 +32,8 @@ export default function Header() {
                 }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                    src={'/Profile.png'}
-                    alt={'Cartoon version of myself'}
+                    src={props.imageUrl}
+                    alt={'A picture of Nate'}
                     className={'xl:h-[65%] xl:w-[65%] rounded-full'}></img>
             </motion.div>
         </header>

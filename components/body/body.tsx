@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+import { useInView } from 'framer-motion'
 import { Noto_Serif_Display } from 'next/font/google'
 
 const notoSerifDisplay = Noto_Serif_Display({
@@ -7,17 +8,43 @@ const notoSerifDisplay = Noto_Serif_Display({
 })
 
 export default function Body() {
+    const h1Ref = useRef(null)
+    const blueHighlight = useRef<HTMLSpanElement>(null)
+    const greenHighlight = useRef<HTMLSpanElement>(null)
+    const orangeHighlight = useRef<HTMLSpanElement>(null)
+    const isInView = useInView(h1Ref, {
+        margin: '-600px 0px 0px 0px',
+        once: true,
+    })
+
+    useEffect(() => {
+        if (!isInView) return
+
+        // Personally I think this is quite ugly but it works
+        setTimeout(() => {
+            blueHighlight.current?.classList.add('highlight-blue')
+        }, 0.2 * 1000)
+
+        setTimeout(() => {
+            orangeHighlight.current?.classList.add('highlight-orange')
+        }, 0.4 * 1000)
+
+        setTimeout(() => {
+            greenHighlight.current?.classList.add('highlight-green')
+        }, 0.6 * 1000)
+    }, [isInView])
+
     return (
         <div className={'space-y-14 mt-8 mx-7 lg:mx-20'}>
             <h1
-                className={`justify-between items-center header-text ${notoSerifDisplay.className}`}>
-                I am a{' '}
-                <span className={'highlight-blue'}>Software Engineer</span>{' '}
+                className={`justify-between items-center header-text ${notoSerifDisplay.className}`}
+                ref={h1Ref}>
+                I am a <span ref={blueHighlight}>Software Engineer</span>{' '}
                 working in Contact Center Engineering based in{' '}
-                <span className={'highlight-orange'}>Arkansas</span>. I&apos;ve
-                carried many titles over my career, with{' '}
-                <span className={'highlight-green'}>skills including</span>{' '}
-                management, logistics, & excellent customer service
+                <span ref={orangeHighlight}>Arkansas</span>. I&apos;ve carried
+                many titles over my career, with{' '}
+                <span ref={greenHighlight}>skills including</span> management,
+                logistics, & excellent customer service
             </h1>
             <hr className={'text-raisinblack-400 bg-raisinblack-400 h-[2px]'} />
             <div className={'block pb-10 lg:flex lg:justify-between'}>

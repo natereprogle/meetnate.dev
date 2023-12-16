@@ -1,3 +1,4 @@
+import Nav from '@/components/nav/nav'
 import './globals.css'
 import React from 'react'
 
@@ -13,7 +14,10 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className={'staticNoise'}>{children}</body>
+            <body className={'staticNoise'}>
+                <Nav />
+                {children}
+            </body>
         </html>
     )
 }

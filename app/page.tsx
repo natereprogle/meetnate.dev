@@ -5,7 +5,6 @@ import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
 
 import styles from '@/app/page.module.css'
 import Header from '@/components/header/header'
-import Nav from '@/components/nav/nav'
 import Body from '@/components/body/body'
 
 export default function Home() {
@@ -34,9 +33,14 @@ export default function Home() {
 
     return (
         <>
-            <Nav />
             <div className={'h-screen flex flex-col justify-between'}>
-                <Header />
+                <Header
+                    props={{
+                        title: 'Hi there!',
+                        subtitle: "I'm Nate",
+                        imageUrl: '/Profile.png',
+                    }}
+                />
                 {/* Stop rendering bouncing arrow if user has scrolled, otherwise render it */}
                 <motion.svg
                     xmlns="http://www.w3.org/2000/svg"
