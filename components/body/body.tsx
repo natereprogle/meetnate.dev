@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import { useInView } from 'framer-motion'
 import { Noto_Serif_Display } from 'next/font/google'
+import Experience from '../experience/experience'
+import Skills from '../skills/skills'
 
 const notoSerifDisplay = Noto_Serif_Display({
     subsets: ['latin'],
@@ -78,6 +80,10 @@ export default function Body() {
                 </p>
             </div>
             <div>
+                <div className="block pb-10 lg:flex lg:justify-between">
+                    <Skills></Skills>
+                    <Experience></Experience>
+                </div>
                 <h1 className={'header-text'}>Content below here</h1>
                 <h1 className={'header-text'}>Content below here</h1>
                 <h1 className={'header-text'}>Content below here</h1>
