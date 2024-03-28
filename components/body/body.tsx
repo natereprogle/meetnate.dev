@@ -80,18 +80,10 @@ export default function Body() {
                 </p>
             </div>
             <div>
-                <div className="block pb-10 lg:flex lg:justify-between">
+                <div className="block lg:flex lg:justify-between">
                     <Skills></Skills>
                     <Experience></Experience>
                 </div>
-                <h1 className={'header-text'}>Content below here</h1>
-                <h1 className={'header-text'}>Content below here</h1>
-                <h1 className={'header-text'}>Content below here</h1>
-                <h1 className={'header-text'}>Content below here</h1>
-                <h1 className={'header-text'}>Content below here</h1>
-                <h1 className={'header-text'}>Content below here</h1>
-                <h1 className={'header-text'}>Content below here</h1>
-                <h1 className={'header-text'}>Content below here</h1>
             </div>
         </div>
     )

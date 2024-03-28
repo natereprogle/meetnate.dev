@@ -6,6 +6,7 @@ import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import styles from '@/app/page.module.css'
 import Header from '@/components/header/header'
 import Body from '@/components/body/body'
+import Footer from '@/components/footer.tsx/footer'
 
 export default function Home() {
     const [isVisible, setIsVisible] = useState(true)
@@ -65,6 +66,8 @@ export default function Home() {
             </div>
 
             <Body />
+            <hr className={'text-raisinblack-400 bg-raisinblack-400 h-[2px]'} />
+            <Footer />
         </>
     )
 }

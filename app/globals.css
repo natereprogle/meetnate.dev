@@ -38,10 +38,10 @@ A bunch of classes to enable highlighting of text.
  */
 
 @keyframes highlight-appear {
-    0% {
+    from {
         width: 0;
     }
-    100% {
+    to {
         width: calc(100% + 4px);
     }
 }
@@ -58,7 +58,7 @@ A bunch of classes to enable highlighting of text.
     width: 0;
     height: 60%;
     left: -2px;
-    bottom: 10px;
+    bottom: 5px;
     z-index: -1;
     transform: rotate(-1deg);
     animation: highlight-appear 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -78,13 +78,12 @@ A bunch of classes to enable highlighting of text.
 /*noinspection DuplicatedCode*/
 .highlight-orange::before {
     background-color: theme('colors.atomictangerine.300');
-
     content: '';
     position: absolute;
     width: calc(100% + 4px);
     height: 60%;
     left: -2px;
-    bottom: 10px;
+    bottom: 5px;
     z-index: -1;
     transform: rotate(-1deg);
     animation: highlight-appear 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -104,13 +103,12 @@ A bunch of classes to enable highlighting of text.
 /*noinspection DuplicatedCode*/
 .highlight-green::before {
     background-color: theme('colors.ivory.400');
-
     content: '';
     position: absolute;
     width: calc(100% + 4px);
     height: 60%;
     left: -2px;
-    bottom: 10px;
+    bottom: 5px;
     z-index: -1;
     transform: rotate(-1deg);
     animation: highlight-appear 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -119,5 +117,30 @@ A bunch of classes to enable highlighting of text.
 @media (prefers-color-scheme: dark) {
     .highlight-green::before {
         background-color: theme('colors.ivory.700');
+    }
+}
+
+.highlight-raisin {
+    position: relative;
+    animation: highlight-appear 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/*noinspection DuplicatedCode*/
+.highlight-raisin::before {
+    background-color: theme('colors.raisinblack.500');
+    content: '';
+    position: absolute;
+    width: calc(100% + 4px);
+    height: 60%;
+    left: -2px;
+    bottom: 5px;
+    z-index: -1;
+    transform: rotate(-1deg);
+    animation: highlight-appear 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@media (prefers-color-scheme: dark) {
+    .highlight-raisin::before {
+        background-color: theme('colors.raisinblack.700');
     }
 }

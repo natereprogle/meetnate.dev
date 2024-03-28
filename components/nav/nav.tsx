@@ -60,7 +60,9 @@ export default function Nav() {
                     </a>
                 </li>
                 <li>
-                    <a href="/blog" className={'flex space-x-1'}>
+                    <a
+                        href="https://medium.com/@natereprogle"
+                        className={'flex space-x-1'}>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"

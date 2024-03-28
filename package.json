@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@cloudflare/next-on-pages": "^1.11.0",
     "@headlessui/react": "^1.7.13",
     "@react-three/fiber": "^8.12.0",
     "framer-motion": "^10.12.18",
@@ -21,10 +22,10 @@
     "typescript": "^5.0.3"
   },
   "devDependencies": {
-    "@types/three": "^0.159.0",
     "@types/node": "^20.0.0",
     "@types/react": "^18.0.33",
     "@types/react-dom": "^18.0.11",
+    "@types/three": "^0.159.0",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.37.0",
     "eslint-config-next": "^14.0.0",
